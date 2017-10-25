@@ -15,6 +15,9 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 @Entity
 @Table(name = "event")
 public class Event {
@@ -32,6 +35,7 @@ public class Event {
 	private Integer important;
 	private String tag;
 	@NotNull
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;

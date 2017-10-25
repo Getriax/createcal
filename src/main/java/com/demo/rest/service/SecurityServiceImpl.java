@@ -40,7 +40,7 @@ public class SecurityServiceImpl implements SecurityService{
 		
 		if (uPAT.isAuthenticated()) {
 			SecurityContextHolder.getContext().setAuthentication(uPAT);
-			logger.debug(String.format("User $s logged successfuly", username));
+			logger.debug(String.format("User %s logged successfuly", username));
 		}
 	}
 	

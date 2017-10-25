@@ -66,13 +66,7 @@ public class UserController {
 	}
 
 	@RequestMapping({ "/", "welcome" })
-	public String welcome(Model model, @RequestParam(value = "tag", defaultValue = "", required = false) String tag, Principal principal) {
-		Long id = userRepository.findIdOfUserByName(principal.getName());
-		if (tag.isEmpty())
-			model.addAttribute("events", eventRepository.findByUserId(id));
-		else
-			model.addAttribute("events", eventRepository.findByTagAndUser(id, tag));
-
+	public String welcome(Model model) {
 		model.addAttribute("eventForm", new SimpleEvent());
 		return "welcome";
 	}
